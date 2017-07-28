@@ -43,6 +43,7 @@ type Message interface {
 type TextMessage struct {
 	ID   string
 	Text string
+	UserID string
 }
 
 // MarshalJSON method of TextMessage
