@@ -50,7 +50,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 			   if message.Text == "MyID" { 
-				  if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(  "Line_ID:已取得"+message.UserID )).Do(); err != nil {
+				  if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(  "Line_ID:已取得"+message.HandleFunc )).Do(); err != nil {
 					log.Print(err)
 				   }
 			    }
