@@ -124,6 +124,7 @@ func (e *Event) MarshalJSON() ([]byte, error) {
 	case *TextMessage:
 		raw.Message = &rawEventMessage{
 			Type: MessageTypeText,
+			UserID:   m.UserID,
 			ID:   m.ID,
 			Text: m.Text,
 		}
