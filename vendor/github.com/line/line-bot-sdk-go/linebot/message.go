@@ -51,9 +51,11 @@ func (m *TextMessage) MarshalJSON() ([]byte, error) {
 	return json.Marshal(&struct {
 		Type MessageType `json:"type"`
 		Text string      `json:"text"`
+		UserID string      `json:"UserID"`
 	}{
 		Type: MessageTypeText,
 		Text: m.Text,
+		UserID: m.UserID,
 	})
 }
 
