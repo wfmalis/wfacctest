@@ -124,9 +124,9 @@ func (e *Event) MarshalJSON() ([]byte, error) {
 	case *TextMessage:
 		raw.Message = &rawEventMessage{
 			Type: MessageTypeText,
-			UserID:   m.UserID,
 			ID:   m.ID,
 			Text: m.Text,
+			UserID: m.UserID,
 		}
 	case *ImageMessage:
 		raw.Message = &rawEventMessage{
@@ -183,6 +183,7 @@ func (e *Event) UnmarshalJSON(body []byte) (err error) {
 			e.Message = &TextMessage{
 				ID:   rawEvent.Message.ID,
 				Text: rawEvent.Message.Text,
+				UserID: rawEvent.Message.UserID,
 			}
 		case MessageTypeImage:
 			e.Message = &ImageMessage{
